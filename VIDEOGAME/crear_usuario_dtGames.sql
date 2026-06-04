@@ -1,0 +1,18 @@
+alter session set '_ORACLE_SCRIPT'=true;
+
+drop user dtGames cascade;
+
+CREATE USER dtGames
+  IDENTIFIED BY VALUES '252F42DA0C05A7DB'
+  DEFAULT TABLESPACE users
+  TEMPORARY TABLESPACE TEMP
+  PROFILE DEFAULT
+  ACCOUNT UNLOCK;
+
+  GRANT RESOURCE TO dtGames;
+  GRANT CONNECT TO dtGames;
+  GRANT dba TO dtGames;
+  GRANT UNLIMITED TABLESPACE TO dtGames;
+  ALTER USER dtGames DEFAULT ROLE ALL;
+
+alter user dtGames identified by dtGames;
